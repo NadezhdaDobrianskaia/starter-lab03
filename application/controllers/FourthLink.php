@@ -1,27 +1,25 @@
 <?php
 
 /*
- * Contains the controller to route the last link or the navbar 
- * (through the index method).
+ * Contains the controller to route the fourth link that contains guess in the url. 
  *
  * @author Nadia
  */
-class Welcome extends Application{
+class FourthLink extends Application{
     /*
-    * Welcome controller constructor. 
-    */
-    function __construct() {
+     * Constractor of the guess Controller
+     */
+     function __construct() {
         parent::__construct();
     }
     
     /*
-     * called when the URL is localhost/last.  In this case last is the folder
-     * where Welcome.php is located
+     * Routed from loclhost/dunno
      */
         function index() {
         $this->data['pagebody'] = 'justone';    // this is the view we want shown
         // build the list of authors, to pass on to our view
-        $source = $this->quotes->last();
+        $source = $this->quotes->get(4);
         
         $this->data['who'] = $source['who'];
         $this->data['mug'] = $source['mug'];
@@ -29,4 +27,5 @@ class Welcome extends Application{
 
         $this->render();
     }
+
 }
